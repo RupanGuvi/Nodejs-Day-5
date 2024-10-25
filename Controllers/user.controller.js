@@ -47,3 +47,15 @@ export const loginUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+//get user
+
+export const getUser = async (req, res) => {
+  try {
+    //const userId = req.user._id;
+    const user = await User.find();
+    res.status(200).json({ message: "Authorized User", data: user });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
